@@ -203,12 +203,9 @@ bool Match3Model::destroyCells()
 {
     bool ret = false;
     if (!m_destroyList.empty()) {
-        //qDebug() << "Start destruction";
         foreach(int k, m_destroyList) {
             m_field[k].m_checked = true;
-            //qDebug() << "Index: " << k << " with value: " << m_field[k].m_type;
         }
-        //qDebug() << "End destruction";
         addScores(m_destroyList.size());
         std::sort(m_destroyList.begin(), m_destroyList.end(), [](int i, int j){return i > j;});
         dataChanged(index(0), index(m_rowsNum * m_colsNum));
